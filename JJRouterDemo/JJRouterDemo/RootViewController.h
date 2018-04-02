@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
+#import "MyViewController.h"
+#import "FindViewController.h"
+#import "JJNavigationController.h"
 
-@interface RootViewController : BaseViewController
+@interface RootViewController : UITabBarController
+
+@property (nonatomic, strong, readonly) MyViewController *myVC;
+@property (nonatomic, strong, readonly) JJNavigationController *myNaviVC;
+
+@property (nonatomic, strong, readonly) FindViewController *findVC;
+@property (nonatomic, strong, readonly) JJNavigationController *findNaviVC;
+
 
 + (id)sharedRootViewController;
 

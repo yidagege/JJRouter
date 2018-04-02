@@ -21,6 +21,10 @@
 		2D28449D206E97B1002C9697 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284495206E97B0002C9697 /* RootViewController.m */; };
 		2D28449E206E97B1002C9697 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284498206E97B0002C9697 /* BaseViewController.m */; };
 		2D2844A6206E97FB002C9697 /* libJJRouterEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2844A4206E97F2002C9697 /* libJJRouterEngine.a */; };
+		DF9999B2207251A5004F8899 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9999B1207251A5004F8899 /* FindViewController.m */; };
+		DF9999B5207251B7004F8899 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9999B4207251B7004F8899 /* MyViewController.m */; };
+		DF9999B820725265004F8899 /* JJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9999B720725265004F8899 /* JJNavigationController.m */; };
+		DF9999BB2072549A004F8899 /* JJNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9999BA2072549A004F8899 /* JJNavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,16 @@
 		2D284498206E97B0002C9697 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		2D284499206E97B0002C9697 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		2D28449F206E97F1002C9697 /* JJRouterEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JJRouterEngine.xcodeproj; path = ../JJRouterEngine/JJRouterEngine.xcodeproj; sourceTree = "<group>"; };
+		DF9999AC20725004004F8899 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		DF9999AE20725070004F8899 /* JJCommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommonDefine.h; sourceTree = "<group>"; };
+		DF9999B0207251A5004F8899 /* FindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
+		DF9999B1207251A5004F8899 /* FindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
+		DF9999B3207251B7004F8899 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		DF9999B4207251B7004F8899 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		DF9999B620725265004F8899 /* JJNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJNavigationController.h; sourceTree = "<group>"; };
+		DF9999B720725265004F8899 /* JJNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJNavigationController.m; sourceTree = "<group>"; };
+		DF9999B92072549A004F8899 /* JJNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJNavigationBar.h; sourceTree = "<group>"; };
+		DF9999BA2072549A004F8899 /* JJNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJNavigationBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,14 +147,17 @@
 				2D28445F206E9752002C9697 /* ViewController.h */,
 				2D284460206E9752002C9697 /* ViewController.m */,
 				2D284497206E97B0002C9697 /* common */,
-				2D284492206E97B0002C9697 /* FirstViewController.h */,
-				2D284493206E97B0002C9697 /* FirstViewController.m */,
 				2D284496206E97B0002C9697 /* RootViewController.h */,
 				2D284495206E97B0002C9697 /* RootViewController.m */,
 				2D28448F206E97B0002C9697 /* RouterManager.h */,
 				2D284491206E97B0002C9697 /* RouterManager.m */,
+				DF9999AF20725186004F8899 /* tab */,
+				2D284492206E97B0002C9697 /* FirstViewController.h */,
+				2D284493206E97B0002C9697 /* FirstViewController.m */,
 				2D284490206E97B0002C9697 /* SecondViewController.h */,
 				2D284494206E97B0002C9697 /* SecondViewController.m */,
+				DF9999AC20725004004F8899 /* PrefixHeader.pch */,
+				DF9999AE20725070004F8899 /* JJCommonDefine.h */,
 				2D284462206E9752002C9697 /* Main.storyboard */,
 				2D284465206E9752002C9697 /* Assets.xcassets */,
 				2D284467206E9752002C9697 /* LaunchScreen.storyboard */,
@@ -171,8 +188,8 @@
 		2D284497206E97B0002C9697 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				2D284498206E97B0002C9697 /* BaseViewController.m */,
 				2D284499206E97B0002C9697 /* BaseViewController.h */,
+				2D284498206E97B0002C9697 /* BaseViewController.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -190,6 +207,21 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF9999AF20725186004F8899 /* tab */ = {
+			isa = PBXGroup;
+			children = (
+				DF9999B0207251A5004F8899 /* FindViewController.h */,
+				DF9999B1207251A5004F8899 /* FindViewController.m */,
+				DF9999B3207251B7004F8899 /* MyViewController.h */,
+				DF9999B4207251B7004F8899 /* MyViewController.m */,
+				DF9999B620725265004F8899 /* JJNavigationController.h */,
+				DF9999B720725265004F8899 /* JJNavigationController.m */,
+				DF9999B92072549A004F8899 /* JJNavigationBar.h */,
+				DF9999BA2072549A004F8899 /* JJNavigationBar.m */,
+			);
+			path = tab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,9 +373,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF9999B2207251A5004F8899 /* FindViewController.m in Sources */,
+				DF9999BB2072549A004F8899 /* JJNavigationBar.m in Sources */,
 				2D28449C206E97B1002C9697 /* SecondViewController.m in Sources */,
+				DF9999B820725265004F8899 /* JJNavigationController.m in Sources */,
 				2D28449E206E97B1002C9697 /* BaseViewController.m in Sources */,
 				2D28449D206E97B1002C9697 /* RootViewController.m in Sources */,
+				DF9999B5207251B7004F8899 /* MyViewController.m in Sources */,
 				2D284461206E9752002C9697 /* ViewController.m in Sources */,
 				2D28446C206E9752002C9697 /* main.m in Sources */,
 				2D28449B206E97B1002C9697 /* FirstViewController.m in Sources */,
@@ -518,8 +554,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = /Users/zhangyi35/Desktop/JJRouter/JJRouterDemo/JJRouterDemo/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../JJRouterEngine\"/**";
 				INFOPLIST_FILE = JJRouterDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyi.JJRouterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,8 +571,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = /Users/zhangyi35/Desktop/JJRouter/JJRouterDemo/JJRouterDemo/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../JJRouterEngine\"/**";
 				INFOPLIST_FILE = JJRouterDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyi.JJRouterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -144,5 +144,13 @@
 }
 
 
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
+}
+
+
+
+
 
 @end

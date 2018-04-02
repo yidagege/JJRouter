@@ -8,8 +8,10 @@
 
 #import "RootViewController.h"
 #import "JDREApi.h"
+#import "JJCommonDefine.h"
 
 @interface RootViewController ()
+@property (nonatomic, assign) NSInteger currentSelectedIndex;
 
 @end
 
@@ -40,51 +42,31 @@ static RootViewController* sharedRootViewController = nil;
 }
 
 - (void)viewDidLoad{
-    self.title = @"root";
-    UIButton *b1 = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 40)];
-    b1.backgroundColor = [UIColor redColor];
-    [b1 addTarget:self action:@selector(goone) forControlEvents:UIControlEventTouchUpInside];
-    [b1 setTitle:@"go 1" forState:UIControlStateNormal];
-    [self.view addSubview:b1];
-    UIButton *b2 = [[UIButton alloc]initWithFrame:CGRectMake(100, 200, 100, 40)];
-    b2.backgroundColor = [UIColor yellowColor];
-    [b2 addTarget:self action:@selector(gotwo) forControlEvents:UIControlEventTouchUpInside];
-    [b2 setTitle:@"go 2" forState:UIControlStateNormal];
-    [self.view addSubview:b2];
-}
-
-- (void)goone{
-    NSDictionary *config = @{@"biz_id": @"100",
-                             @"biz_plugin": @"",
-                             @"biz_params": @{@"biz_sub_id": @"1",
-                                              @"biz_params": @"",
-                                              @"biz_dynamic_params": @"",
-                                              @"biz_statistics": @""}};
-
-    JDREModuleParameter *parameter = [[JDREModuleParameter alloc] init];
-    parameter.originalParams = config;
-    parameter.otherParams = @{kEngineKeyParentVC:self};
-    parameter.closeCallBack = ^(JDRECallbackData *callbackData) {
-        
-    };
-    JDREOpenModule(parameter);
-}
-
-- (void)gotwo{
-    NSDictionary *config = @{@"biz_id": @"100",
-                             @"biz_plugin": @"",
-                             @"biz_params": @{@"biz_sub_id": @"2",
-                                              @"biz_params": @"",
-                                              @"biz_dynamic_params": @"",
-                                              @"biz_statistics": @""}};
+    [super viewDidLoad];
     
-    JDREModuleParameter *parameter = [[JDREModuleParameter alloc] init];
-    parameter.originalParams = config;
-    parameter.otherParams = @{kEngineKeyParentVC:self};
-    parameter.closeCallBack = ^(JDRECallbackData *callbackData) {
-        
-    };
-    JDREOpenModule(parameter);
+    [self initFindVC];
+    [self initMyVC];
+}
+
+- (void)initFindVC {
+    _findVC = [FindViewController new];
+    _findVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"发现" image:[UIImage imageNamed:@"icon-fenlei-unselected"] selectedImage:[[UIImage imageNamed:@"icon-fenlei-unselected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    [_findVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kColorTextMain, NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
+    _findNaviVC = [JJNavigationController withRootViewController:_findVC];
+}
+
+- (void)initMyVC {
+    _myVC = [MyViewController new];
+    _myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"tabbarIconBookShelfNormal"] selectedImage:[[UIImage imageNamed:@"tabbarIconBookShelfNormal"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    [_myVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kColorTextMain, NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
+    _myNaviVC = [JJNavigationController withRootViewController:_myVC];
+}
+
+- (void)setTabBarController {
+    [self setViewControllers:@[_findNaviVC, _myNaviVC] animated:NO];
+    [self.tabBar setTintColor:kColorTextMain];
+    self.currentSelectedIndex = 0;
+    [self setSelectedIndex:self.currentSelectedIndex];
 }
 
 @end

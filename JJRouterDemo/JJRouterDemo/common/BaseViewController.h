@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#define kEngineKeyParentVC       @"parentVC"
 
 typedef void (^CommonViewCloseBlock)(void);
 
