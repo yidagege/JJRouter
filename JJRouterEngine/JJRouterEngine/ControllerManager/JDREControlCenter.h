@@ -1,20 +1,20 @@
 //
-//  JDREControllerCenter.h
-//  JEREngine
+//  JJEControllerCenter.h
+//  JJEngine
 //
 //  Created by zhangyi35 on 2018/3/23.
 //  Copyright © 2018年 zhangyi35. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "JDREApi.h"
+#import "JJEApi.h"
 
-@class JDREInterfaceManager;
-@class JDRECallbackData;
+@class JJEInterfaceManager;
+@class JJECallbackData;
 
 
-@interface JDREControlCenter : NSObject
-@property (nonatomic, strong) JDREInterfaceManager* interfaceMgr;
+@interface JJEControlCenter : NSObject
+@property (nonatomic, strong) JJEInterfaceManager* interfaceMgr;
 
 /**
  *
@@ -37,20 +37,20 @@
  *
  *    @brief    模块注册，已独立并可通过CC调起的模块必须先注册后，才能被调起
  *
- *    @param     type     JDREModuleType
+ *    @param     type     JJEModuleType
  */
-- (void)moduleRegisterByType:(JDREModuleType)type;
+- (void)moduleRegisterByType:(JJEModuleType)type;
 
 /**
  *
- *    @brief    此方法在模块完成后，有回调的情况下应该被调用，处理JDRECallbackData对象，并回调模块的调用者
+ *    @brief    此方法在模块完成后，有回调的情况下应该被调用，处理JJECallbackData对象，并回调模块的调用者
  *
- *    @param     callbackData     JDRECallbackData对象
+ *    @param     callbackData     JJECallbackData对象
  */
-- (void)callbackWithData:(JDRECallbackData *)callbackData;
+- (void)callbackWithData:(JJECallbackData *)callbackData;
 
 - (void)moduleRegisterByModuleID:(NSString *)moduleID andClassName:(NSString *)className;
 
-- (void)handleModuleParameter:(JDREModuleParameter *)parameter;
+- (void)handleModuleParameter:(JJEModuleParameter *)parameter;
 
 @end

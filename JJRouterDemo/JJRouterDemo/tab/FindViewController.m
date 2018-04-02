@@ -7,7 +7,7 @@
 //
 
 #import "FindViewController.h"
-#import "JDREApi.h"
+#import "JJEApi.h"
 
 @interface FindViewController ()
 
@@ -39,13 +39,13 @@
                                               @"biz_dynamic_params": @"",
                                               @"biz_statistics": @""}};
     
-    JDREModuleParameter *parameter = [[JDREModuleParameter alloc] init];
+    JJEModuleParameter *parameter = [[JJEModuleParameter alloc] init];
     parameter.originalParams = config;
     parameter.otherParams = @{kEngineKeyParentVC:self};
-    parameter.closeCallBack = ^(JDRECallbackData *callbackData) {
+    parameter.closeCallBack = ^(JJECallbackData *callbackData) {
         
     };
-    JDREOpenModule(parameter);
+    JJEOpenModule(parameter);
 }
 
 - (void)gotwo{
@@ -56,13 +56,13 @@
                                               @"biz_dynamic_params": @"",
                                               @"biz_statistics": @""}};
     
-    JDREModuleParameter *parameter = [[JDREModuleParameter alloc] init];
+    JJEModuleParameter *parameter = [[JJEModuleParameter alloc] init];
     parameter.originalParams = config;
     parameter.otherParams = @{kEngineKeyParentVC:self};
-    parameter.closeCallBack = ^(JDRECallbackData *callbackData) {
+    parameter.closeCallBack = ^(JJECallbackData *callbackData) {
         
     };
-    JDREOpenModule(parameter);
+    JJEOpenModule(parameter);
 }
 
 - (void)didReceiveMemoryWarning {

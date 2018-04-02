@@ -7,7 +7,7 @@
 //
 #import "RootViewController.h"
 #import <UIKit/UIKit.h>
-#define JDRDelegate ((AppDelegate*)[UIApplication sharedApplication].delegate)
+#define JJDelegate ((AppDelegate*)[UIApplication sharedApplication].delegate)
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

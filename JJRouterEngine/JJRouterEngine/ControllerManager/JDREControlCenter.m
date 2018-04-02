@@ -1,52 +1,52 @@
 //
-//  JDREControllerCenter.m
+//  JJEControllerCenter.m
 //  JEREngine
 //
 //  Created by zhangyi35 on 2018/3/23.
 //  Copyright © 2018年 zhangyi35. All rights reserved.
 //
 
-#import "JDREControlCenter.h"
-#import "JDREChecker.h"
-#import "JDREConstants.h"
-#import "JDREModuleProtocol.h"
-#import "JDRELibStack.h"
+#import "JJEControlCenter.h"
+#import "JJEChecker.h"
+#import "JJEConstants.h"
+#import "JJEModuleProtocol.h"
+#import "JJELibStack.h"
 #import <UIKit/UIKit.h>
 
-static NSString * const kJDRECurrentTaskKey = @"com.JDR.engine.currenttask";
-int const kJDRRegisterPlayerBizID = 102;
+static NSString * const kJJECurrentTaskKey = @"com.JJ.engine.currenttask";
+int const kJJRegisterPlayerBizID = 102;
 
-@interface JDREControlCenter()
+@interface JJEControlCenter()
 
-@property (nonatomic, strong) JDREChecker *checker;
+@property (nonatomic, strong) JJEChecker *checker;
 @property (nonatomic, strong) NSMutableArray *typeArray;
 @property (nonatomic, strong) NSMutableDictionary *moduleDic;
 @property (nonatomic, strong) NSMutableArray *launchStack;
 @property (nonatomic, strong) NSMutableArray *statusBarStack;
-@property (nonatomic, strong) JDRELibStack *libStack;
+@property (nonatomic, strong) JJELibStack *libStack;
 
 @end
 
 
-@implementation JDREControlCenter
+@implementation JJEControlCenter
 - (id)init
 {
     if (self = [super init]) {
-        isJDRELogOpen = YES;
+        isJJELogOpen = YES;
         
-        _checker = [[JDREChecker alloc] init];
+        _checker = [[JJEChecker alloc] init];
         _typeArray = [NSMutableArray array];
         _moduleDic = [NSMutableDictionary dictionary];
         _launchStack = [NSMutableArray array];
         _statusBarStack = [NSMutableArray array];
-        _libStack = [[JDRELibStack alloc] init];
+        _libStack = [[JJELibStack alloc] init];
     }
     return self;
 }
 
 + (instancetype)sharedInstance
 {
-    static JDREControlCenter *_instance = nil;
+    static JJEControlCenter *_instance = nil;
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         _instance = self.new;
@@ -59,69 +59,40 @@ int const kJDRRegisterPlayerBizID = 102;
     return [NSArray arrayWithArray:_typeArray];
 }
 
-//- (void)handleMsgObj:(JDREObject *)obj andCallback:(JDRECallback *)callback
-//{
-//    NSParameterAssert(obj);
-//
-//    NSError *error = nil;
-//
-//    if ([obj isKindOfClass:[JDREObject class]] && obj.module > 0) {
-//        if ([_checker check:obj]) { //检查模块间依赖
-//            //调用解析模块解析
-//            JDRETask *task = [_parser parseEngineObj:obj andCallback:callback error:&error];
-//            if (task) {
-//                if ([self shouldIntoStack:task]) {
-//                    [_taskStack push:task];
-//                    [_libStack push:task];
-//                }
-//                [_actionHandler handleTask:task];
-//            }else {
-//                [self callback:callback withError:error andData:nil];
-//            }
-//        }else{
-//            error = [NSError errorWithDomain:JDREngineErrorDomain code:0 userInfo:@{@"name":@"modules dependency is invalid"}];
-//            [self callback:callback withError:error andData:nil];
-//        }
-//    }
-//    else {
-//        error = [NSError errorWithDomain:JDREngineErrorDomain code:0 userInfo:@{@"name":@"parameter is invalid"}];
-//        [self callback:callback withError:error andData:nil];
-//    }
-//}
 
 
 #pragma mark - for crash log
 
 - (void)writeCurrentTasktoFile
 {
-    JDREModuleParameter *parameter = [_launchStack lastObject];
+    JJEModuleParameter *parameter = [_launchStack lastObject];
     
     if (parameter) {
         NSDictionary *originalParams = [parameter.originalParams isKindOfClass:[NSDictionary class]] ? parameter.originalParams : nil;
-        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@", originalParams[@"biz_id"]] forKey:kJDRECurrentTaskKey];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@", originalParams[@"biz_id"]] forKey:kJJECurrentTaskKey];
     }
     else {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kJDRECurrentTaskKey];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kJJECurrentTaskKey];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - 注册制
 
-- (void)launchModuleByClassName:(NSString *)className andParam:(JDREModuleParameter *)param
+- (void)launchModuleByClassName:(NSString *)className andParam:(JJEModuleParameter *)param
 {
     [NSClassFromString(className) launchWithParam:param];
 }
 
-- (void)handleModuleParameter:(JDREModuleParameter *)parameter
+- (void)handleModuleParameter:(JJEModuleParameter *)parameter
 {
-    JDRELog(@"注册制模块掉起，服务器参数：\n%@\n其他参数：\n%@", parameter.originalParams, parameter.otherParams);
+    JJELog(@"注册制模块掉起，服务器参数：\n%@\n其他参数：\n%@", parameter.originalParams, parameter.otherParams);
     
     NSDictionary *originalParams = [parameter.originalParams isKindOfClass:[NSDictionary class]] ? parameter.originalParams : nil;
     
     if (!originalParams) {
-        JDRECallbackData *cbData = [[JDRECallbackData alloc] init];
-        cbData.error = [NSError errorWithDomain:JDREngineErrorDomain code:0 userInfo:@{@"name":@"data error"}];;
+        JJECallbackData *cbData = [[JJECallbackData alloc] init];
+        cbData.error = [NSError errorWithDomain:JJEngineErrorDomain code:0 userInfo:@{@"name":@"data error"}];;
         parameter.closeCallBack(cbData);
         
         return;
@@ -148,11 +119,11 @@ int const kJDRRegisterPlayerBizID = 102;
             [self writeCurrentTasktoFile];
             [_libStack push:parameter];
             
-            JDREModuleParameter *tempParam = [[JDREModuleParameter alloc] init];
+            JJEModuleParameter *tempParam = [[JJEModuleParameter alloc] init];
             tempParam.originalParams = parameter.originalParams;
             tempParam.otherParams = parameter.otherParams;
             tempParam.messageCallBack = parameter.messageCallBack;
-            tempParam.closeCallBack = ^(JDRECallbackData *cb) {
+            tempParam.closeCallBack = ^(JJECallbackData *cb) {
                 ////播放器特殊逻辑，删除第一个播放器
                 NSDictionary *dicData = cb.data;
                 NSNumber *shouldDeleteFirstPlayer = dicData[@"shouldDeleteFirstPlayer"];
@@ -163,7 +134,7 @@ int const kJDRRegisterPlayerBizID = 102;
                 }
                 ////
                 
-                JDREModuleParameter *p = _launchStack.lastObject;
+                JJEModuleParameter *p = _launchStack.lastObject;
                 
                 if (p) {
                     //出栈
@@ -195,17 +166,17 @@ int const kJDRRegisterPlayerBizID = 102;
             [self saveStatusBarStyle];
             
             [self launchModuleByClassName:className andParam:tempParam];
-            [JDREApi logForParam:muDic];
+            [JJEApi logForParam:muDic];
         }
         else {
-            JDRECallbackData *cbData = [[JDRECallbackData alloc] init];
-            cbData.error = [NSError errorWithDomain:JDREngineErrorDomain code:0 userInfo:@{@"name":@"modules does not implement JDREModuleProtocol"}];;
+            JJECallbackData *cbData = [[JJECallbackData alloc] init];
+            cbData.error = [NSError errorWithDomain:JJEngineErrorDomain code:0 userInfo:@{@"name":@"modules does not implement JJEModuleProtocol"}];;
             parameter.closeCallBack(cbData);
         }
     }
     else if (parameter.closeCallBack) {
-        JDRECallbackData *cbData = [[JDRECallbackData alloc] init];
-        cbData.error = [NSError errorWithDomain:JDREngineErrorDomain code:0 userInfo:@{@"name":@"modules does not register"}];;
+        JJECallbackData *cbData = [[JJECallbackData alloc] init];
+        cbData.error = [NSError errorWithDomain:JJEngineErrorDomain code:0 userInfo:@{@"name":@"modules does not register"}];;
         parameter.closeCallBack(cbData);
     }
 }
@@ -228,14 +199,14 @@ int const kJDRRegisterPlayerBizID = 102;
 
 #pragma mark -
 
-- (void)deleteFirstPlayer:(JDRECallbackData *)cb
+- (void)deleteFirstPlayer:(JJECallbackData *)cb
 {
     NSDictionary *data = cb.data;
     
-    JDREModuleParameter *playerParameter = nil;
-    for (JDREModuleParameter *parameter in _launchStack) {
+    JJEModuleParameter *playerParameter = nil;
+    for (JJEModuleParameter *parameter in _launchStack) {
         id biz_id = (parameter.originalParams)[@"biz_id"];
-        if (([biz_id isKindOfClass:[NSString class]] || [biz_id isKindOfClass:[NSNumber class]]) && [biz_id intValue] == kJDRRegisterPlayerBizID) {
+        if (([biz_id isKindOfClass:[NSString class]] || [biz_id isKindOfClass:[NSNumber class]]) && [biz_id intValue] == kJJRegisterPlayerBizID) {
             playerParameter = parameter;
             break;
         }
@@ -266,55 +237,21 @@ int const kJDRRegisterPlayerBizID = 102;
 
 #pragma mark - old engine callback
 
-- (void)moduleRegisterByType:(JDREModuleType)type
+- (void)moduleRegisterByType:(JJEModuleType)type
 {
     if (type && ![_typeArray containsObject:[NSNumber numberWithInt:type]]) {
         [_typeArray addObject:[NSNumber numberWithInt:type]];
     }
 }
 
-////回调给模块调用方
-//- (void)callbackWithData:(JDRECallbackData *)callbackData
-//{
-//    if (callbackData && [callbackData isKindOfClass:[JDRECallbackData class]]) {
-//        if ([callbackData.data isKindOfClass:[NSDictionary class]]) {
-//            NSDictionary *data = callbackData.data;
-//            NSNumber *shouldDeleteFirstPlayer = data[@"shouldDeleteFirstPlayer"];
-//            
-//            if (shouldDeleteFirstPlayer && [shouldDeleteFirstPlayer isKindOfClass:[NSNumber class]] && shouldDeleteFirstPlayer.boolValue) {
-//                //这里耦合了业务逻辑，当播放器调用此方法时，从堆栈中删掉之前的播放器，并且删除播放器时不回调
-//                JDRETask *task = [_taskStack deletePlayer];
-//                [_libStack deleteFirstPlayer:NO];
-//                
-//                NSNumber *shouldCallBack = data[@"shouldCallBack"];
-//                if (task && shouldCallBack && [shouldCallBack isKindOfClass:[NSNumber class]] && shouldCallBack.boolValue) {
-//                    [self callback:task.engineCallback withError:callbackData.error andData:callbackData.data];
-//                }
-//                
-//                return;
-//            }
-//        }
-//        
-//        JDRETask *task = [_taskStack topTask];
-//        
-//        //模块调用完成，需要出栈
-//        if (callbackData.isFinished) {
-//            [_taskStack pop];
-//            [_libStack pop];
-//        }
-//        
-//        [self callback:task.engineCallback withError:callbackData.error andData:callbackData.data];
-//    }
-//}
-
 #pragma mark -
 
-- (void)callback:(JDRECallback *)callback withError:(NSError *)error andData:(NSDictionary *)data
+- (void)callback:(JJECallback *)callback withError:(NSError *)error andData:(NSDictionary *)data
 {
     if (callback
-        && [callback isKindOfClass:[JDRECallback class]]
+        && [callback isKindOfClass:[JJECallback class]]
         && [callback.target respondsToSelector:callback.selector]) {
-        JDRECallbackData *cbData = [[JDRECallbackData alloc] init];
+        JJECallbackData *cbData = [[JJECallbackData alloc] init];
         cbData.error = error;
         cbData.data = data;
         

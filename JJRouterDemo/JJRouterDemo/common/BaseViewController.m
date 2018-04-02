@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#define JDR_POP_ANIMATION_TIME       .4
+#define JJ_POP_ANIMATION_TIME       .4
 #define getx(view)             view.frame.origin.x
 #define gety(view)             view.frame.origin.y
 #define getwidth(view)         view.frame.size.width
@@ -74,14 +74,14 @@
     
     [controller addChildViewController:self];
     
-    if (controller != (UIViewController *)_rootVC && ![controller isKindOfClass:[NSClassFromString(@"JDRControllerContainerViewController") class]]) {
+    if (controller != (UIViewController *)_rootVC && ![controller isKindOfClass:[NSClassFromString(@"JJControllerContainerViewController") class]]) {
         self.view.frame = self.view.bounds;
     }
     
     //view 消失
-    if (controller && [controller respondsToSelector:@selector(JDRCommonViewDisappear)])
+    if (controller && [controller respondsToSelector:@selector(JJCommonViewDisappear)])
     {
-        [controller performSelector:@selector(JDRCommonViewDisappear) withObject:nil];
+        [controller performSelector:@selector(JJCommonViewDisappear) withObject:nil];
     }
     
     UIView *maskView = [[UIView alloc] init];
@@ -111,7 +111,7 @@
     __block BOOL translatesAutoresizingMaskIntoConstraints = parentView.translatesAutoresizingMaskIntoConstraints;
     parentView.translatesAutoresizingMaskIntoConstraints = YES;
     
-    [UIView animateWithDuration:JDR_POP_ANIMATION_TIME delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:JJ_POP_ANIMATION_TIME delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.view.frame = CGRectOffset(self.view.frame, -CGRectGetWidth(self.view.bounds) + gw(parentView) / 4, 0);
         maskView.alpha = 1;
         parentView.center = CGPointMake(gcx(parentView) - gw(parentView) / 4, gcy(parentView));
@@ -129,18 +129,10 @@
     }];
     
     //view 显示
-    if (self && [self respondsToSelector:@selector(JDRCommonViewAppear)])
+    if (self && [self respondsToSelector:@selector(JJCommonViewAppear)])
     {
-        [self performSelector:@selector(JDRCommonViewAppear) withObject:nil];
+        [self performSelector:@selector(JJCommonViewAppear) withObject:nil];
     }
-    
-    //无网提示
-    
-//    if (NetConnectionStatus() == 0) {
-//        if (![self isKindOfClass:[NSClassFromString(@"PPQPreviewController") class]]&&![self isKindOfClass:[NSClassFromString(@"JDRRCTSettingViewController") class]]) {
-//            [self showFailedWithRetry];
-//        }
-//    }
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  JDRETask.h
+//  JJETask.h
 //  JEREngine
 //
 //  Created by zhangyi35 on 2018/3/23.
@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class JDREObject;
-@class JDRECallback;
+@class JJEObject;
+@class JJECallback;
 
-@interface JDRETask : NSObject
+@interface JJETask : NSObject
 
-@property (nonatomic, strong) JDREObject *engineObj;
-@property (nonatomic, strong) JDRECallback *engineCallback;
+@property (nonatomic, strong) JJEObject *engineObj;
+@property (nonatomic, strong) JJECallback *engineCallback;
 
 @end

@@ -1,20 +1,20 @@
 //
-//  JDRELibStack.m
+//  JJELibStack.m
 //  JEREngine
 //
 //  Created by zhangyi35 on 2018/3/23.
 //  Copyright © 2018年 zhangyi35. All rights reserved.
 //
 
-#import "JDRELibStack.h"
-#import "JDRETask.h"
-#import "JDREApi.h"
+#import "JJELibStack.h"
+#import "JJETask.h"
+#import "JJEApi.h"
 
-NSString * const kJDRELibTaskKey = @"com.JDR.engine.libtask";
-extern int kJDRRegisterPlayerBizID;
+NSString * const kJJELibTaskKey = @"com.JJ.engine.libtask";
+extern int kJJRegisterPlayerBizID;
 
 //为sharelib需要提供的类，记录当前模块
-@implementation JDRELibStack {
+@implementation JJELibStack {
     NSMutableArray *_array;
 }
 
@@ -31,16 +31,16 @@ extern int kJDRRegisterPlayerBizID;
 - (void)writeToFile:(id)obj
 {
     if (obj == nil) {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kJDRELibTaskKey];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kJJELibTaskKey];
     }
     else {
-        if ([obj isKindOfClass:[JDRETask class]]) {
-            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"engine:%d", [[(JDRETask *)obj engineObj] module]] forKey:kJDRELibTaskKey];
+        if ([obj isKindOfClass:[JJETask class]]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"engine:%d", [[(JJETask *)obj engineObj] module]] forKey:kJJELibTaskKey];
         }
-        else if ([obj isKindOfClass:[JDREModuleParameter class]]) {
-            JDREModuleParameter *parameter = obj;
+        else if ([obj isKindOfClass:[JJEModuleParameter class]]) {
+            JJEModuleParameter *parameter = obj;
             NSDictionary *originalParams = [parameter.originalParams isKindOfClass:[NSDictionary class]] ? parameter.originalParams : nil;
-            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"register:%@", originalParams[@"biz_id"]] forKey:kJDRELibTaskKey];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"register:%@", originalParams[@"biz_id"]] forKey:kJJELibTaskKey];
         }
     }
     
@@ -76,11 +76,11 @@ extern int kJDRRegisterPlayerBizID;
 - (void)deleteFirstPlayer:(BOOL)isRegister
 {
     if (isRegister) {
-        JDREModuleParameter *playerParameter = nil;
-        for (JDREModuleParameter *parameter in _array) {
-            if ([parameter isKindOfClass:[JDREModuleParameter class]]) {
+        JJEModuleParameter *playerParameter = nil;
+        for (JJEModuleParameter *parameter in _array) {
+            if ([parameter isKindOfClass:[JJEModuleParameter class]]) {
                 id biz_id = (parameter.originalParams)[@"biz_id"];
-                if (([biz_id isKindOfClass:[NSString class]] || [biz_id isKindOfClass:[NSNumber class]]) && [biz_id intValue] == kJDRRegisterPlayerBizID) {
+                if (([biz_id isKindOfClass:[NSString class]] || [biz_id isKindOfClass:[NSNumber class]]) && [biz_id intValue] == kJJRegisterPlayerBizID) {
                     playerParameter = parameter;
                     break;
                 }
@@ -92,9 +92,9 @@ extern int kJDRRegisterPlayerBizID;
         }
     }
     else {
-        JDRETask *playerTask = nil;
-        for (JDRETask *task in _array) {
-            if ([task isKindOfClass:[JDRETask class]] && task.engineObj.module == enumJDREModulePlayer && task.engineObj.type == JDREModulePlayerTypeDefault) {
+        JJETask *playerTask = nil;
+        for (JJETask *task in _array) {
+            if ([task isKindOfClass:[JJETask class]] && task.engineObj.module == enumJJEModulePlayer && task.engineObj.type == JJEModulePlayerTypeDefault) {
                 playerTask = task;
                 break;
             }

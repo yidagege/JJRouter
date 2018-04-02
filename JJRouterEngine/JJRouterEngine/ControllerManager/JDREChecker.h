@@ -1,5 +1,4 @@
 //
-//  JDREChecker.h
 //  JEREngine
 //
 //  Created by zhangyi35 on 2018/3/23.
@@ -7,16 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
-@class JDREObject;
+@class JJEObject;
 
-@interface JDREChecker : NSObject
+@interface JJEChecker : NSObject
 /**
  *    检查发起模块调用的目的模块版本是否匹配
  *
- *    @param callObj (JDREObject)
+ *    @param callObj (JJEObject)
  *
  *    @return YES/NO
  */
-- (BOOL)check:(JDREObject*)callObj;
+- (BOOL)check:(JJEObject*)callObj;
 
 @end

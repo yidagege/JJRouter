@@ -1,5 +1,4 @@
 //
-//  JDREApi.h
 //  JEREngine
 //
 //  Created by zhangyi35 on 2018/3/23.
@@ -7,48 +6,48 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JDREConstants.h"
+#import "JJEConstants.h"
 
-@class JDREObject;
-@class JDRECallback;
-@class JDREInterfaceManager;
-@class JDREModuleParameter;
+@class JJEObject;
+@class JJECallback;
+@class JJEInterfaceManager;
+@class JJEModuleParameter;
 
 /**
  *
  *    @brief    调起某个模块
  *
  *    @param     obj     engine obj对象，不可为nil
- *  @see    JDREObject
+ *  @see    JJEObject
  *    @param     callback    callback对象，如果不需要回调，可以为nil
- *  @see    JDRECallback
+ *  @see    JJECallback
  */
-void JDREMsgSend(JDREObject *obj, JDRECallback *callback);
+void JJEMsgSend(JJEObject *obj, JJECallback *callback);
 
 /**
  *
  *    @brief    调起支持注册制的模块
  *
  *    @param     parameter
- *  @see    JDREModuleParameter
+ *  @see    JJEModuleParameter
  */
-void JDREOpenModule(JDREModuleParameter *parameter);
+void JJEOpenModule(JJEModuleParameter *parameter);
 
 
 //此变量外部调试时可用，设为YES时在debug模式下打印log，否则不打印
-extern BOOL isJDRELogOpen;
+extern BOOL isJJELogOpen;
 
-FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
+FOUNDATION_EXPORT void JJELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 /**
  此对象包含了要调起模块的相关信息
  */
-@interface JDREObject : NSObject
+@interface JJEObject : NSObject
 
 /**
  *
  *    @brief    要调起的模块
- *  @see    JDREModuleType
+ *  @see    JJEModuleType
  */
 @property (nonatomic) int module;
 
@@ -68,11 +67,11 @@ FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  *
  *    @brief    创建一个JDREObject对象
  *
- *    @param     module     某个模块，参见JDREModuleType
+ *    @param     module     某个模块，参见JJEModuleType
  *    @param     type    模块对应的某个类型，即模块对应的某个具体功能
  *    @param     userinfo     调起模块时模块对应的参数
  *
- *    @return    JDREObject对象
+ *    @return    JJEObject对象
  */
 + (instancetype)engineObjWithModule:(int)module type:(int)type andUserInfo:(NSDictionary *)userinfo;
 
@@ -81,7 +80,7 @@ FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 /**
  模块调用后使用的回调对象
  */
-@interface JDRECallback : NSObject
+@interface JJECallback : NSObject
 
 /**
  *
@@ -113,7 +112,7 @@ FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  *                  ;
  *               where callbackData is the JDRECallbackData Object
  *
- *    @return    JDRECallback对象
+ *    @return    JJECallback对象
  */
 + (instancetype)callbackWithTarget:(id)target selector:(SEL)selector;
 
@@ -122,7 +121,7 @@ FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 /**
  callback方法对应的selector调用时所传的对象
  */
-@interface JDRECallbackData : NSObject
+@interface JJECallbackData : NSObject
 
 /**
  *
@@ -143,12 +142,12 @@ FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 /**
  *
- *    @brief    创建一个JDRECallbackData对象
+ *    @brief    创建一个JJECallbackData对象
  *
  *    @param     error   回调数据出错时的错误
  *    @param     data     回调模块返回的数据，此数据为一个接口
  *
- *    @return    JDRECallbackData对象
+ *    @return    JJECallbackData对象
  */
 + (instancetype)callbackDataWithError:(NSError *)error andData:(NSDictionary *)data;
 
@@ -156,22 +155,22 @@ FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 /**
  京东阅读引擎Api
  */
-@interface JDREApi : NSObject
+@interface JJEApi : NSObject
 /**
  *
  *    @brief    设置接口管理器
  *
- *    @param     mgr     应该是JDREInterfaceManager的子类
+ *    @param     mgr     应该是JJEInterfaceManager的子类
  */
-+ (void)setInterfaceMgr:(JDREInterfaceManager *)mgr;
++ (void)setInterfaceMgr:(JJEInterfaceManager *)mgr;
 
 /**
  *
  *    @brief    模块注册，已独立并可通过CC调起的模块必须先注册后，才能被调起
  *
- *    @param     type     JDREModuleType
+ *    @param     type     JJEModuleType
  */
-+ (void)moduleRegisterByType:(JDREModuleType)type;
++ (void)moduleRegisterByType:(JJEModuleType)type;
 
 #pragma mark - For register
 
@@ -180,7 +179,7 @@ FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  *    @brief    注册制中，业务模块要调用的方法，需要在业务模块中+ (void)load中调用此方法
  *
  *    @param     moduleID     注册的module id，由服务器规定
- *    @param     className     类名，需要实现JDREModuleProtocol协议中的方法
+ *    @param     className     类名，需要实现JJEModuleProtocol协议中的方法
  */
 + (void)registerByModuleID:(NSString *)moduleID andClassName:(NSString *)className;
 
@@ -188,7 +187,7 @@ FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  iPad使用注册制中，业务模块要调用的方法，需要在业务模块中+ (void)load中调用此方法
  
  @param moduleID 注册的module id，由服务器规定
- @param className 类名，需要实现JDREModuleProtocol协议中的方法
+ @param className 类名，需要实现JJEModuleProtocol协议中的方法
  */
 + (void)registerForPadByModuleID:(NSString *)moduleID andClassName:(NSString *)className;
 
@@ -198,10 +197,10 @@ FOUNDATION_EXPORT void JDRELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 #pragma mark -
 
-typedef void (^JDREModuleClose)(JDRECallbackData *callbackData);
-typedef void (^JDREModuleMessage)(NSDictionary *message);
+typedef void (^JJEModuleClose)(JJECallbackData *callbackData);
+typedef void (^JJEModuleMessage)(NSDictionary *message);
 
-@interface JDREModuleParameter : NSObject
+@interface JJEModuleParameter : NSObject
 
 /**
  *
@@ -218,12 +217,12 @@ typedef void (^JDREModuleMessage)(NSDictionary *message);
 /**
  当被调用的模块需要传递消息给调用者时，可以设置此block
  */
-@property (nonatomic, copy) JDREModuleMessage messageCallBack;
+@property (nonatomic, copy) JJEModuleMessage messageCallBack;
 
 /**
  *
  *    @brief    模块关闭时的回调，此方法在模块关闭时必须调用
  */
-@property (nonatomic, copy) JDREModuleClose closeCallBack;
+@property (nonatomic, copy) JJEModuleClose closeCallBack;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-#import "JDREApi.h"
+#import "JJEApi.h"
 #import "JJCommonDefine.h"
 
 @interface RootViewController ()
@@ -46,6 +46,7 @@ static RootViewController* sharedRootViewController = nil;
     
     [self initFindVC];
     [self initMyVC];
+    [self setTabBarController];
 }
 
 - (void)initFindVC {
@@ -57,7 +58,8 @@ static RootViewController* sharedRootViewController = nil;
 
 - (void)initMyVC {
     _myVC = [MyViewController new];
-    _myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"tabbarIconBookShelfNormal"] selectedImage:[[UIImage imageNamed:@"tabbarIconBookShelfNormal"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+
+    _myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"tabbarIconMineNormal"] selectedImage:[[UIImage imageNamed:@"tabbarIconMineNormal"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     [_myVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kColorTextMain, NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
     _myNaviVC = [JJNavigationController withRootViewController:_myVC];
 }
