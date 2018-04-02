@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2D284431206E9670002C9697 /* JJRouterEngine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D28442E206E9670002C9697 /* JJRouterEngine.h */; };
-		2D284449206E96FF002C9697 /* JDREApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284438206E96FF002C9697 /* JDREApi.m */; };
-		2D28444A206E96FF002C9697 /* JDREChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28443F206E96FF002C9697 /* JDREChecker.m */; };
-		2D28444B206E9700002C9697 /* JDRELibStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284440206E96FF002C9697 /* JDRELibStack.m */; };
-		2D28444C206E9700002C9697 /* JDRETask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284443206E96FF002C9697 /* JDRETask.m */; };
-		2D28444D206E9700002C9697 /* JDREControlCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284444206E96FF002C9697 /* JDREControlCenter.m */; };
-		2D28444E206E9700002C9697 /* JDREConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284446206E96FF002C9697 /* JDREConstants.m */; };
-		2D28444F206E9700002C9697 /* JDREInterfaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284448206E96FF002C9697 /* JDREInterfaceManager.m */; };
+		2D284449206E96FF002C9697 /* JJEApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284438206E96FF002C9697 /* JJEApi.m */; };
+		2D28444A206E96FF002C9697 /* JJEChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28443F206E96FF002C9697 /* JJEChecker.m */; };
+		2D28444B206E9700002C9697 /* JJELibStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284440206E96FF002C9697 /* JJELibStack.m */; };
+		2D28444C206E9700002C9697 /* JJETask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284443206E96FF002C9697 /* JJETask.m */; };
+		2D28444D206E9700002C9697 /* JJEControlCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284444206E96FF002C9697 /* JJEControlCenter.m */; };
+		2D28444E206E9700002C9697 /* JJEConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284446206E96FF002C9697 /* JJEConstants.m */; };
+		2D28444F206E9700002C9697 /* JJEInterfaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284448206E96FF002C9697 /* JJEInterfaceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,22 +33,22 @@
 /* Begin PBXFileReference section */
 		2D28442B206E9670002C9697 /* libJJRouterEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJJRouterEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D28442E206E9670002C9697 /* JJRouterEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJRouterEngine.h; sourceTree = "<group>"; };
-		2D284437206E96FF002C9697 /* JEREngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEREngine.h; sourceTree = "<group>"; };
-		2D284438206E96FF002C9697 /* JDREApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDREApi.m; sourceTree = "<group>"; };
-		2D284439206E96FF002C9697 /* JDREApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDREApi.h; sourceTree = "<group>"; };
-		2D28443A206E96FF002C9697 /* JDREModuleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDREModuleProtocol.h; sourceTree = "<group>"; };
-		2D28443B206E96FF002C9697 /* JDREConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDREConstants.h; sourceTree = "<group>"; };
-		2D28443D206E96FF002C9697 /* JDRELibStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDRELibStack.h; sourceTree = "<group>"; };
-		2D28443E206E96FF002C9697 /* JDREControlCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDREControlCenter.h; sourceTree = "<group>"; };
-		2D28443F206E96FF002C9697 /* JDREChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDREChecker.m; sourceTree = "<group>"; };
-		2D284440206E96FF002C9697 /* JDRELibStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDRELibStack.m; sourceTree = "<group>"; };
-		2D284442206E96FF002C9697 /* JDRETask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDRETask.h; sourceTree = "<group>"; };
-		2D284443206E96FF002C9697 /* JDRETask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDRETask.m; sourceTree = "<group>"; };
-		2D284444206E96FF002C9697 /* JDREControlCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDREControlCenter.m; sourceTree = "<group>"; };
-		2D284445206E96FF002C9697 /* JDREChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDREChecker.h; sourceTree = "<group>"; };
-		2D284446206E96FF002C9697 /* JDREConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDREConstants.m; sourceTree = "<group>"; };
-		2D284447206E96FF002C9697 /* JDREInterfaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDREInterfaceManager.h; sourceTree = "<group>"; };
-		2D284448206E96FF002C9697 /* JDREInterfaceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDREInterfaceManager.m; sourceTree = "<group>"; };
+		2D284437206E96FF002C9697 /* JJEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJEngine.h; sourceTree = "<group>"; };
+		2D284438206E96FF002C9697 /* JJEApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJEApi.m; sourceTree = "<group>"; };
+		2D284439206E96FF002C9697 /* JJEApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJEApi.h; sourceTree = "<group>"; };
+		2D28443A206E96FF002C9697 /* JJEModuleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJEModuleProtocol.h; sourceTree = "<group>"; };
+		2D28443B206E96FF002C9697 /* JJEConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJEConstants.h; sourceTree = "<group>"; };
+		2D28443D206E96FF002C9697 /* JJELibStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJELibStack.h; sourceTree = "<group>"; };
+		2D28443E206E96FF002C9697 /* JJEControlCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJEControlCenter.h; sourceTree = "<group>"; };
+		2D28443F206E96FF002C9697 /* JJEChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJEChecker.m; sourceTree = "<group>"; };
+		2D284440206E96FF002C9697 /* JJELibStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJELibStack.m; sourceTree = "<group>"; };
+		2D284442206E96FF002C9697 /* JJETask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJETask.h; sourceTree = "<group>"; };
+		2D284443206E96FF002C9697 /* JJETask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJETask.m; sourceTree = "<group>"; };
+		2D284444206E96FF002C9697 /* JJEControlCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJEControlCenter.m; sourceTree = "<group>"; };
+		2D284445206E96FF002C9697 /* JJEChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJEChecker.h; sourceTree = "<group>"; };
+		2D284446206E96FF002C9697 /* JJEConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJEConstants.m; sourceTree = "<group>"; };
+		2D284447206E96FF002C9697 /* JJEInterfaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJEInterfaceManager.h; sourceTree = "<group>"; };
+		2D284448206E96FF002C9697 /* JJEInterfaceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJEInterfaceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,14 +82,14 @@
 			isa = PBXGroup;
 			children = (
 				2D28443C206E96FF002C9697 /* ControllerManager */,
-				2D284439206E96FF002C9697 /* JDREApi.h */,
-				2D284438206E96FF002C9697 /* JDREApi.m */,
-				2D28443B206E96FF002C9697 /* JDREConstants.h */,
-				2D284446206E96FF002C9697 /* JDREConstants.m */,
-				2D284447206E96FF002C9697 /* JDREInterfaceManager.h */,
-				2D284448206E96FF002C9697 /* JDREInterfaceManager.m */,
-				2D28443A206E96FF002C9697 /* JDREModuleProtocol.h */,
-				2D284437206E96FF002C9697 /* JEREngine.h */,
+				2D284439206E96FF002C9697 /* JJEApi.h */,
+				2D284438206E96FF002C9697 /* JJEApi.m */,
+				2D28443B206E96FF002C9697 /* JJEConstants.h */,
+				2D284446206E96FF002C9697 /* JJEConstants.m */,
+				2D284447206E96FF002C9697 /* JJEInterfaceManager.h */,
+				2D284448206E96FF002C9697 /* JJEInterfaceManager.m */,
+				2D28443A206E96FF002C9697 /* JJEModuleProtocol.h */,
+				2D284437206E96FF002C9697 /* JJEngine.h */,
 				2D28442E206E9670002C9697 /* JJRouterEngine.h */,
 			);
 			path = JJRouterEngine;
@@ -98,13 +98,13 @@
 		2D28443C206E96FF002C9697 /* ControllerManager */ = {
 			isa = PBXGroup;
 			children = (
-				2D28443D206E96FF002C9697 /* JDRELibStack.h */,
-				2D28443E206E96FF002C9697 /* JDREControlCenter.h */,
-				2D28443F206E96FF002C9697 /* JDREChecker.m */,
-				2D284440206E96FF002C9697 /* JDRELibStack.m */,
+				2D28443D206E96FF002C9697 /* JJELibStack.h */,
+				2D28443E206E96FF002C9697 /* JJEControlCenter.h */,
+				2D28443F206E96FF002C9697 /* JJEChecker.m */,
+				2D284440206E96FF002C9697 /* JJELibStack.m */,
 				2D284441206E96FF002C9697 /* Task */,
-				2D284444206E96FF002C9697 /* JDREControlCenter.m */,
-				2D284445206E96FF002C9697 /* JDREChecker.h */,
+				2D284444206E96FF002C9697 /* JJEControlCenter.m */,
+				2D284445206E96FF002C9697 /* JJEChecker.h */,
 			);
 			path = ControllerManager;
 			sourceTree = "<group>";
@@ -112,8 +112,8 @@
 		2D284441206E96FF002C9697 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				2D284442206E96FF002C9697 /* JDRETask.h */,
-				2D284443206E96FF002C9697 /* JDRETask.m */,
+				2D284442206E96FF002C9697 /* JJETask.h */,
+				2D284443206E96FF002C9697 /* JJETask.m */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -175,13 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D28444A206E96FF002C9697 /* JDREChecker.m in Sources */,
-				2D28444E206E9700002C9697 /* JDREConstants.m in Sources */,
-				2D28444F206E9700002C9697 /* JDREInterfaceManager.m in Sources */,
-				2D28444D206E9700002C9697 /* JDREControlCenter.m in Sources */,
-				2D28444C206E9700002C9697 /* JDRETask.m in Sources */,
-				2D284449206E96FF002C9697 /* JDREApi.m in Sources */,
-				2D28444B206E9700002C9697 /* JDRELibStack.m in Sources */,
+				2D28444A206E96FF002C9697 /* JJEChecker.m in Sources */,
+				2D28444E206E9700002C9697 /* JJEConstants.m in Sources */,
+				2D28444F206E9700002C9697 /* JJEInterfaceManager.m in Sources */,
+				2D28444D206E9700002C9697 /* JJEControlCenter.m in Sources */,
+				2D28444C206E9700002C9697 /* JJETask.m in Sources */,
+				2D284449206E96FF002C9697 /* JJEApi.m in Sources */,
+				2D28444B206E9700002C9697 /* JJELibStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

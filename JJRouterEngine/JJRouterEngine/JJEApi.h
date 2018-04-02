@@ -1,5 +1,4 @@
 //
-//  JEREngine
 //
 //  Created by zhangyi35 on 2018/3/23.
 //  Copyright © 2018年 zhangyi35. All rights reserved.
@@ -65,7 +64,7 @@ FOUNDATION_EXPORT void JJELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 /**
  *
- *    @brief    创建一个JDREObject对象
+ *    @brief    创建一个JJEObject对象
  *
  *    @param     module     某个模块，参见JJEModuleType
  *    @param     type    模块对应的某个类型，即模块对应的某个具体功能
@@ -93,24 +92,24 @@ FOUNDATION_EXPORT void JJELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  *    @brief    此方法将会在target上被调用
  *  @see    target
  *  @attention   The selector to be called on the target must be a method with the following signature:
- *                  - (void)selector:(JDRECallbackData *)
+ *                  - (void)selector:(JJECallbackData *)
  *                  callbackData
  *                  ;
- *               where callbackData is the JDRECallbackData Object
+ *               where callbackData is the JJECallbackData Object
  */
 @property (nonatomic) SEL selector;
 
 /**
  *
- *    @brief    创建一个JDRECallback对象
+ *    @brief    创建一个JJECallback对象
  *
  *    @param     target     selector被调用在的target
  *    @param     selector     此方法将会在target上被调用
  *  @attention   The selector to be called on the target must be a method with the following signature:
- *                  - (void)selector:(JDRECallbackData *)
+ *                  - (void)selector:(JJECallbackData *)
  *                  callbackData
  *                  ;
- *               where callbackData is the JDRECallbackData Object
+ *               where callbackData is the JJECallbackData Object
  *
  *    @return    JJECallback对象
  */

@@ -57,6 +57,11 @@
         return;
     }
     
+//    if (controller == JJDelegate.rootVc) {
+//        [controller.navigationController pushViewController:self animated:YES];
+//    }
+//
+//    return;
     UIView *parentView = controller.view;
     UIImageView *imaView = nil;
     
@@ -138,11 +143,58 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = nil;
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];;
 }
 
+- (void)back{
+//    [self.navigationController popViewControllerAnimated:YES];
+    [self backCommonMethodWithAnimation:YES];
+}
 
+- (void)backCommonMethodWithAnimation:(BOOL)isAnimation
+{
+    if ([self.parentViewController respondsToSelector:@selector(childViewControllerWillBeDismissed:)]) {
+        [self.parentViewController performSelector:@selector(childViewControllerWillBeDismissed:) withObject:self];
+    }
+    
+ 
+        if (isAnimation) //需要动画的操作
+        {
+            UIView *maskView = [[UIView alloc] init];
+            maskView.frame = self.parentViewController.view.bounds;
+            maskView.backgroundColor = RGBACOLOR(0, 0, 0, .6);
+            [self.parentViewController.view insertSubview:maskView belowSubview:self.view];
+            
+            self.view.center = CGPointMake(gcx(self.view) + gw(self.view) / 4, gcy(self.view));
+            self.parentViewController.view.center = CGPointMake(gcx(self.parentViewController.view) - gw(self.parentViewController.view) / 4, gcy(self.parentViewController.view));
+            
+            [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.view.frame = CGRectOffset(self.view.frame, CGRectGetWidth(self.view.bounds) - gw(self.view) / 4, 0);
+                maskView.alpha = 0;
+                self.parentViewController.view.center = CGPointMake(gcx(self.parentViewController.view) + gw(self.parentViewController.view) / 4, gcy(self.parentViewController.view));
+            } completion:^(BOOL finished) {
+                [maskView removeFromSuperview];
+                [self clean];
+                
+                
+            }];
+            
+        }else{
+            //不需要动画的操作
+            [self clean];
+        }
+        
+    
+    
+}
 
-
+- (void)clean{
+    if (self.view && self.view.superview)
+    {
+        [self.view removeFromSuperview];
+    }
+    [self removeFromParentViewController];
+}
 
 @end

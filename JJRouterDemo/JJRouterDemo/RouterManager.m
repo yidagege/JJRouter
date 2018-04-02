@@ -39,7 +39,10 @@
             JJECallbackData *cb = [JJECallbackData callbackDataWithError:nil andData:@{@"info":@"AddressViewController has dismissed"}];
             param.closeCallBack(cb);
         };
-        [v1 showInParentController:param.otherParams[kEngineKeyParentVC]];
+//        [v1 showInParentController:param.otherParams[kEngineKeyParentVC]];
+        //
+        [v1 showInParentController:JJDelegate.rootVc];
+
     }
     if ([subID isEqualToString:@"2"]) {
         SecondViewController *v2 = [[SecondViewController alloc] init];

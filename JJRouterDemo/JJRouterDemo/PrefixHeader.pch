@@ -10,6 +10,7 @@
 #ifdef __OBJC__
 
 #import "JJCommonDefine.h"
+#import "AppDelegate.h"
 
 #endif
 

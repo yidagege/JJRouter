@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"root";
+    self.title = @"find";
     UIButton *b1 = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 40)];
     b1.backgroundColor = [UIColor redColor];
     [b1 addTarget:self action:@selector(goone) forControlEvents:UIControlEventTouchUpInside];
