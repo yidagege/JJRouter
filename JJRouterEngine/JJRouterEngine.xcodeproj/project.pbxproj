@@ -80,10 +80,10 @@
 			isa = PBXGroup;
 			children = (
 				2D28443D206E96FF002C9697 /* JJELibStack.h */,
-				2D28443E206E96FF002C9697 /* JJEControlCenter.h */,
 				2D284440206E96FF002C9697 /* JJELibStack.m */,
-				2D284441206E96FF002C9697 /* Task */,
+				2D28443E206E96FF002C9697 /* JJEControlCenter.h */,
 				2D284444206E96FF002C9697 /* JJEControlCenter.m */,
+				2D284441206E96FF002C9697 /* Task */,
 			);
 			path = ControllerManager;
 			sourceTree = "<group>";

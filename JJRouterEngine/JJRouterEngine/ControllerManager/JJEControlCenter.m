@@ -10,7 +10,7 @@
 #import "JJELibStack.h"
 #import <UIKit/UIKit.h>
 
-static NSString * const kJJECurrentTaskKey = @"com.JJ.engine.currenttask";
+static NSString * const kJJECurrentTaskKey = @"com.jj.engine.currenttask";
 NSString * const JJEngineErrorDomain = @"com.jj.error.engine";
 
 
@@ -92,15 +92,8 @@ NSString * const JJEngineErrorDomain = @"com.jj.error.engine";
         className = _moduleDic[[NSString stringWithFormat:@"%@@@iPad", originalParams[@"biz_id"]]];
     }
     
-    //
     if (className) {
         if ([NSClassFromString(className) respondsToSelector:@selector(launchWithParam:)]) {
-            //8.0版本新增了打开类型
-            if ([parameter.otherParams[@"openType"] isKindOfClass:[NSString class]] && [parameter.otherParams[@"openType"] isEqualToString:@"messageOnly"]) {
-                [self launchModuleByClassName:className andParam:parameter];
-                
-                return;
-            }
             
             //入栈
             [_launchStack addObject:parameter];

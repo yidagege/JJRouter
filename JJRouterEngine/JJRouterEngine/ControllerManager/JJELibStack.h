@@ -12,11 +12,5 @@
 - (void)push:(id)obj;
 - (id)pop;
 
-/**
- 从堆栈中删除最早的player
- 
- @param isRegister 是否为注册制删除
- */
-- (void)deleteFirstPlayer:(BOOL)isRegister;
 
 @end
