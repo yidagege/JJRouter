@@ -6,7 +6,6 @@
 //
 
 #import "JJELibStack.h"
-#import "JJETask.h"
 #import "JJEApi.h"
 
 NSString * const kJJELibTaskKey = @"com.JJ.engine.libtask";
@@ -32,10 +31,8 @@ NSString * const kJJELibTaskKey = @"com.JJ.engine.libtask";
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:kJJELibTaskKey];
     }
     else {
-        if ([obj isKindOfClass:[JJETask class]]) {
-            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"engine:%d", [[(JJETask *)obj engineObj] module]] forKey:kJJELibTaskKey];
-        }
-        else if ([obj isKindOfClass:[JJEModuleParameter class]]) {
+
+        if ([obj isKindOfClass:[JJEModuleParameter class]]) {
             JJEModuleParameter *parameter = obj;
             NSDictionary *originalParams = [parameter.originalParams isKindOfClass:[NSDictionary class]] ? parameter.originalParams : nil;
             [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"register:%@", originalParams[@"biz_id"]] forKey:kJJELibTaskKey];

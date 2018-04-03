@@ -27,11 +27,11 @@
     if (![controller isKindOfClass:[UIViewController class]]) {
         return;
     }
-    
     if (controller != JJDelegate.rootVc ) {
         [controller.navigationController pushViewController:self animated:YES];
     }else if (controller == JJDelegate.rootVc){
-        [JJDelegate.rootVc.currentVC.navigationController pushViewController:self animated:YES];
+        NSInteger index = JJDelegate.rootVc.currentIndex;
+        [JJDelegate.rootVc.viewControllers[index] pushViewController:self animated:YES];
     }
 }
 

@@ -69,7 +69,7 @@ static RootViewController* sharedRootViewController = nil;
     [self.tabBar setTintColor:kColorTextMain];
     self.currentSelectedIndex = 0;
     [self setSelectedIndex:self.currentSelectedIndex];
-    _currentVC = _findVC;
+    _currentIndex = 0;
 }
 
 @end

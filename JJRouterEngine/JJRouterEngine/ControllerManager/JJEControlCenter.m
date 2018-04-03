@@ -179,22 +179,4 @@ NSString * const JJEngineErrorDomain = @"com.jj.error.engine";
 }
 
 
-#pragma mark -
-
-- (void)callback:(JJECallback *)callback withError:(NSError *)error andData:(NSDictionary *)data
-{
-    if (callback
-        && [callback isKindOfClass:[JJECallback class]]
-        && [callback.target respondsToSelector:callback.selector]) {
-        JJECallbackData *cbData = [[JJECallbackData alloc] init];
-        cbData.error = error;
-        cbData.data = data;
-        
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [callback.target performSelector:callback.selector withObject:cbData];
-#pragma clang diagnostic pop
-    }
-}
-
 @end

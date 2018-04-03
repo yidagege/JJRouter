@@ -7,32 +7,6 @@
 
 #import "JJEApi.h"
 #import "JJEControlCenter.h"
-@implementation JJEObject
-
-+ (instancetype)engineObjWithModule:(int)module type:(int)type andUserInfo:(NSDictionary *)userinfo
-{
-    JJEObject *obj = [[JJEObject alloc] init];
-    obj.module = module;
-    obj.type = type;
-    obj.userInfo = userinfo;
-    
-    return obj;
-}
-
-@end
-
-@implementation JJECallback
-
-+ (instancetype)callbackWithTarget:(id)target selector:(SEL)selector
-{
-    JJECallback *callback = [[JJECallback alloc] init];
-    callback.target = target;
-    callback.selector = selector;
-    
-    return callback;
-}
-
-@end
 
 @implementation JJECallbackData
 
