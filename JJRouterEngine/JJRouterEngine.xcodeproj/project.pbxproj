@@ -11,6 +11,8 @@
 		2D28444B206E9700002C9697 /* JJELibStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284440206E96FF002C9697 /* JJELibStack.m */; };
 		2D28444C206E9700002C9697 /* JJETask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284443206E96FF002C9697 /* JJETask.m */; };
 		2D28444D206E9700002C9697 /* JJEControlCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D284444206E96FF002C9697 /* JJEControlCenter.m */; };
+		DF999A0020737C8D004F8899 /* JJEApi.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D284439206E96FF002C9697 /* JJEApi.h */; };
+		DF999A0120737C8D004F8899 /* JJEModuleProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D28443A206E96FF002C9697 /* JJEModuleProtocol.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,6 +22,8 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				DF999A0020737C8D004F8899 /* JJEApi.h in CopyFiles */,
+				DF999A0120737C8D004F8899 /* JJEModuleProtocol.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +216,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -261,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
