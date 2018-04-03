@@ -10,7 +10,6 @@
 #import "JJEApi.h"
 
 NSString * const kJJELibTaskKey = @"com.JJ.engine.libtask";
-extern int kJJRegisterPlayerBizID;
 
 //为sharelib需要提供的类，记录当前模块
 @implementation JJELibStack {

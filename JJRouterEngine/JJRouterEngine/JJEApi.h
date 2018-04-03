@@ -5,23 +5,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JJEConstants.h"
 
 @class JJEObject;
 @class JJECallback;
-@class JJEInterfaceManager;
 @class JJEModuleParameter;
 
-/**
- *
- *    @brief    调起某个模块
- *
- *    @param     obj     engine obj对象，不可为nil
- *  @see    JJEObject
- *    @param     callback    callback对象，如果不需要回调，可以为nil
- *  @see    JJECallback
- */
-void JJEMsgSend(JJEObject *obj, JJECallback *callback);
 
 /**
  *
@@ -152,24 +140,9 @@ FOUNDATION_EXPORT void JJELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 @end
 /**
- 京东阅读引擎Api
+ jj引擎Api
  */
 @interface JJEApi : NSObject
-/**
- *
- *    @brief    设置接口管理器
- *
- *    @param     mgr     应该是JJEInterfaceManager的子类
- */
-+ (void)setInterfaceMgr:(JJEInterfaceManager *)mgr;
-
-/**
- *
- *    @brief    模块注册，已独立并可通过CC调起的模块必须先注册后，才能被调起
- *
- *    @param     type     JJEModuleType
- */
-//+ (void)moduleRegisterByType:(JJEModuleType)type;
 
 #pragma mark - For register
 

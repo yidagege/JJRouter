@@ -81,15 +81,6 @@ void JJELog(NSString *format, ...) {
 }
 
 @implementation JJEApi
-+ (void)setInterfaceMgr:(JJEInterfaceManager *)mgr
-{
-    [JJEControlCenter sharedInstance].interfaceMgr = mgr;
-}
-
-//+ (void)moduleRegisterByType:(JJEModuleType)type
-//{
-//    [[JJEControlCenter sharedInstance] moduleRegisterByType:type];
-//}
 
 + (void)registerByModuleID:(NSString *)moduleID andClassName:(NSString *)className
 {

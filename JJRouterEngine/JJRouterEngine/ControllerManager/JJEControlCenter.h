@@ -9,12 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "JJEApi.h"
 
-@class JJEInterfaceManager;
 @class JJECallbackData;
 
 
 @interface JJEControlCenter : NSObject
-@property (nonatomic, strong) JJEInterfaceManager* interfaceMgr;
 
 /**
  *

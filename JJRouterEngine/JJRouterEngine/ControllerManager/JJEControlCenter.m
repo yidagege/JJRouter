@@ -6,18 +6,16 @@
 //
 
 #import "JJEControlCenter.h"
-#import "JJEChecker.h"
-#import "JJEConstants.h"
 #import "JJEModuleProtocol.h"
 #import "JJELibStack.h"
 #import <UIKit/UIKit.h>
 
 static NSString * const kJJECurrentTaskKey = @"com.JJ.engine.currenttask";
-int const kJJRegisterPlayerBizID = 102;
+NSString * const JJEngineErrorDomain = @"com.jj.error.engine";
+
 
 @interface JJEControlCenter()
 
-@property (nonatomic, strong) JJEChecker *checker;
 @property (nonatomic, strong) NSMutableDictionary *moduleDic;
 @property (nonatomic, strong) NSMutableArray *launchStack;
 @property (nonatomic, strong) NSMutableArray *statusBarStack;
@@ -32,7 +30,6 @@ int const kJJRegisterPlayerBizID = 102;
     if (self = [super init]) {
         isJJELogOpen = YES;
         
-        _checker = [[JJEChecker alloc] init];
         _moduleDic = [NSMutableDictionary dictionary];
         _launchStack = [NSMutableArray array];
         _statusBarStack = [NSMutableArray array];
@@ -180,35 +177,6 @@ int const kJJRegisterPlayerBizID = 102;
 }
 
 #pragma mark -
-
-- (void)deleteFirstPlayer:(JJECallbackData *)cb
-{
-    NSDictionary *data = cb.data;
-    
-    JJEModuleParameter *playerParameter = nil;
-    for (JJEModuleParameter *parameter in _launchStack) {
-        id biz_id = (parameter.originalParams)[@"biz_id"];
-        if (([biz_id isKindOfClass:[NSString class]] || [biz_id isKindOfClass:[NSNumber class]]) && [biz_id intValue] == kJJRegisterPlayerBizID) {
-            playerParameter = parameter;
-            break;
-        }
-    }
-    
-    if (playerParameter && playerParameter != _launchStack.lastObject) {
-        [_launchStack removeObject:playerParameter];
-    }
-    
-    [self writeCurrentTasktoFile];
-    [_libStack deleteFirstPlayer:YES];
-    
-    NSNumber *shouldCallBack = data[@"shouldCallBack"];
-    
-    if (shouldCallBack && [shouldCallBack isKindOfClass:[NSNumber class]] && shouldCallBack.boolValue) {
-        if (playerParameter.closeCallBack) {
-            playerParameter.closeCallBack(cb);
-        }
-    }
-}
 
 - (void)moduleRegisterByModuleID:(NSString *)moduleID andClassName:(NSString *)className
 {
