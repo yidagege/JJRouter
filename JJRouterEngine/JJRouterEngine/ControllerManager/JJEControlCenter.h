@@ -39,7 +39,7 @@
  *
  *    @param     type     JJEModuleType
  */
-- (void)moduleRegisterByType:(JJEModuleType)type;
+//- (void)moduleRegisterByType:(JJEModuleType)type;
 
 /**
  *

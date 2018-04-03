@@ -72,37 +72,5 @@ extern int kJJRegisterPlayerBizID;
     return obj;
 }
 
-- (void)deleteFirstPlayer:(BOOL)isRegister
-{
-    if (isRegister) {
-        JJEModuleParameter *playerParameter = nil;
-        for (JJEModuleParameter *parameter in _array) {
-            if ([parameter isKindOfClass:[JJEModuleParameter class]]) {
-                id biz_id = (parameter.originalParams)[@"biz_id"];
-                if (([biz_id isKindOfClass:[NSString class]] || [biz_id isKindOfClass:[NSNumber class]]) && [biz_id intValue] == kJJRegisterPlayerBizID) {
-                    playerParameter = parameter;
-                    break;
-                }
-            }
-        }
-        
-        if (playerParameter && playerParameter != _array.lastObject) {
-            [_array removeObject:playerParameter];
-        }
-    }
-    else {
-        JJETask *playerTask = nil;
-        for (JJETask *task in _array) {
-            if ([task isKindOfClass:[JJETask class]] && task.engineObj.module == enumJJEModulePlayer && task.engineObj.type == JJEModulePlayerTypeDefault) {
-                playerTask = task;
-                break;
-            }
-        }
-        
-        if (playerTask && playerTask != _array.lastObject) {
-            [_array removeObject:playerTask];
-        }
-    }
-}
 
 @end

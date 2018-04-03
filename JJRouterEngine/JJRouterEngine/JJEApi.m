@@ -86,10 +86,10 @@ void JJELog(NSString *format, ...) {
     [JJEControlCenter sharedInstance].interfaceMgr = mgr;
 }
 
-+ (void)moduleRegisterByType:(JJEModuleType)type
-{
-    [[JJEControlCenter sharedInstance] moduleRegisterByType:type];
-}
+//+ (void)moduleRegisterByType:(JJEModuleType)type
+//{
+//    [[JJEControlCenter sharedInstance] moduleRegisterByType:type];
+//}
 
 + (void)registerByModuleID:(NSString *)moduleID andClassName:(NSString *)className
 {

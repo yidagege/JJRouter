@@ -19,6 +19,8 @@
 @property (nonatomic, strong, readonly) FindViewController *findVC;
 @property (nonatomic, strong, readonly) JJNavigationController *findNaviVC;
 
+@property (nonatomic, strong) UIViewController *currentVC;
+
 
 + (id)sharedRootViewController;
 

@@ -169,7 +169,7 @@ FOUNDATION_EXPORT void JJELog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  *
  *    @param     type     JJEModuleType
  */
-+ (void)moduleRegisterByType:(JJEModuleType)type;
+//+ (void)moduleRegisterByType:(JJEModuleType)type;
 
 #pragma mark - For register
 

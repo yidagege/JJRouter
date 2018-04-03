@@ -18,7 +18,6 @@ int const kJJRegisterPlayerBizID = 102;
 @interface JJEControlCenter()
 
 @property (nonatomic, strong) JJEChecker *checker;
-@property (nonatomic, strong) NSMutableArray *typeArray;
 @property (nonatomic, strong) NSMutableDictionary *moduleDic;
 @property (nonatomic, strong) NSMutableArray *launchStack;
 @property (nonatomic, strong) NSMutableArray *statusBarStack;
@@ -34,7 +33,6 @@ int const kJJRegisterPlayerBizID = 102;
         isJJELogOpen = YES;
         
         _checker = [[JJEChecker alloc] init];
-        _typeArray = [NSMutableArray array];
         _moduleDic = [NSMutableDictionary dictionary];
         _launchStack = [NSMutableArray array];
         _statusBarStack = [NSMutableArray array];
@@ -52,12 +50,6 @@ int const kJJRegisterPlayerBizID = 102;
     });
     return _instance;
 }
-
-- (NSArray *)moduleArray
-{
-    return [NSArray arrayWithArray:_typeArray];
-}
-
 
 
 #pragma mark - for crash log
@@ -123,15 +115,6 @@ int const kJJRegisterPlayerBizID = 102;
             tempParam.otherParams = parameter.otherParams;
             tempParam.messageCallBack = parameter.messageCallBack;
             tempParam.closeCallBack = ^(JJECallbackData *cb) {
-                ////播放器特殊逻辑，删除第一个播放器
-                NSDictionary *dicData = cb.data;
-                NSNumber *shouldDeleteFirstPlayer = dicData[@"shouldDeleteFirstPlayer"];
-                
-                if (shouldDeleteFirstPlayer && [shouldDeleteFirstPlayer isKindOfClass:[NSNumber class]] && shouldDeleteFirstPlayer.boolValue) {
-                    [self deleteFirstPlayer:cb];
-                    return;
-                }
-                ////
                 
                 JJEModuleParameter *p = _launchStack.lastObject;
                 
@@ -234,14 +217,6 @@ int const kJJRegisterPlayerBizID = 102;
     }
 }
 
-#pragma mark - old engine callback
-
-- (void)moduleRegisterByType:(JJEModuleType)type
-{
-    if (type && ![_typeArray containsObject:[NSNumber numberWithInt:type]]) {
-        [_typeArray addObject:[NSNumber numberWithInt:type]];
-    }
-}
 
 #pragma mark -
 

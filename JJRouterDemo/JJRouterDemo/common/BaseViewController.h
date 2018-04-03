@@ -14,6 +14,6 @@ typedef void (^CommonViewCloseBlock)(void);
 @property (nonatomic, copy) CommonViewCloseBlock closeBlock;
 
 - (void)showInParentController:(UIViewController *)controller;
-
+- (void)back;
 
 @end

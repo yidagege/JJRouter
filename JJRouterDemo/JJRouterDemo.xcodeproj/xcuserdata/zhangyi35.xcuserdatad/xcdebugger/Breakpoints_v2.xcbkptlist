@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JJRouterDemo/RootViewController.m"
-            timestampString = "544367678.027912"
+            filePath = "JJRouterDemo/RouterManager.m"
+            timestampString = "544429974.578631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-initMyVC"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "+launchWithParam:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JJRouterDemo/tab/JJNavigationController.m"
-            timestampString = "544367678.028414"
+            filePath = "JJRouterDemo/tab/FindViewController.m"
+            timestampString = "544430123.537207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "-initWithRootViewController:"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-goone"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

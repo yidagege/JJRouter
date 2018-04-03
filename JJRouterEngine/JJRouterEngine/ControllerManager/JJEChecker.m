@@ -9,10 +9,10 @@
 #import "JJEControlCenter.h"
 
 @implementation JJEChecker
-- (BOOL)check:(JJEObject*)callObj
-{
-    NSArray *moduleArray = [[JJEControlCenter sharedInstance] moduleArray];
-    
-    return [moduleArray containsObject:[NSNumber numberWithInt:enumJJEModuleAll]] || [moduleArray containsObject:[NSNumber numberWithInt:callObj.module]];
-}
+//- (BOOL)check:(JJEObject*)callObj
+//{
+//    NSArray *moduleArray = [[JJEControlCenter sharedInstance] moduleArray];
+//    
+//    return [moduleArray containsObject:[NSNumber numberWithInt:enumJJEModuleAll]] || [moduleArray containsObject:[NSNumber numberWithInt:callObj.module]];
+//}
 @end

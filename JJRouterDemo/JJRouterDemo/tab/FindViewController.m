@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
     self.title = @"find";
     UIButton *b1 = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 40)];
     b1.backgroundColor = [UIColor redColor];
