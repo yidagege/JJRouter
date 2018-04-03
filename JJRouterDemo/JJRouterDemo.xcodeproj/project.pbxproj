@@ -25,6 +25,7 @@
 		DF9999B5207251B7004F8899 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9999B4207251B7004F8899 /* MyViewController.m */; };
 		DF9999B820725265004F8899 /* JJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9999B720725265004F8899 /* JJNavigationController.m */; };
 		DF9999BB2072549A004F8899 /* JJNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9999BA2072549A004F8899 /* JJNavigationBar.m */; };
+		DF999A0720737E00004F8899 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF999A0620737E00004F8899 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		DF9999B720725265004F8899 /* JJNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJNavigationController.m; sourceTree = "<group>"; };
 		DF9999B92072549A004F8899 /* JJNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJNavigationBar.h; sourceTree = "<group>"; };
 		DF9999BA2072549A004F8899 /* JJNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJNavigationBar.m; sourceTree = "<group>"; };
+		DF999A0520737E00004F8899 /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		DF999A0620737E00004F8899 /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,8 @@
 				2D284493206E97B0002C9697 /* FirstViewController.m */,
 				2D284490206E97B0002C9697 /* SecondViewController.h */,
 				2D284494206E97B0002C9697 /* SecondViewController.m */,
+				DF999A0520737E00004F8899 /* ThirdViewController.h */,
+				DF999A0620737E00004F8899 /* ThirdViewController.m */,
 				DF9999AC20725004004F8899 /* PrefixHeader.pch */,
 				DF9999AE20725070004F8899 /* JJCommonDefine.h */,
 				2D284462206E9752002C9697 /* Main.storyboard */,
@@ -374,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF9999B2207251A5004F8899 /* FindViewController.m in Sources */,
+				DF999A0720737E00004F8899 /* ThirdViewController.m in Sources */,
 				DF9999BB2072549A004F8899 /* JJNavigationBar.m in Sources */,
 				2D28449C206E97B1002C9697 /* SecondViewController.m in Sources */,
 				DF9999B820725265004F8899 /* JJNavigationController.m in Sources */,

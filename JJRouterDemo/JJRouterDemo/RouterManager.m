@@ -10,6 +10,7 @@
 #import "JJEApi.h"
 #import "FirstViewController.h"
 #import "SecondViewController.h"
+#import "ThirdViewController.h"
 
 @implementation RouterManager
 
@@ -39,9 +40,9 @@
             JJECallbackData *cb = [JJECallbackData callbackDataWithError:nil andData:@{@"info":@"AddressViewController has dismissed"}];
             param.closeCallBack(cb);
         };
-//        [v1 showInParentController:param.otherParams[kEngineKeyParentVC]];
+        [v1 showInParentController:param.otherParams[kEngineKeyParentVC]];
         //
-        [v1 showInParentController:JJDelegate.rootVc];
+//        [v1 showInParentController:JJDelegate.rootVc];
 
     }
     if ([subID isEqualToString:@"2"]) {
@@ -51,6 +52,15 @@
             param.closeCallBack(cb);
         };
         [v2 showInParentController:param.otherParams[kEngineKeyParentVC]];
+    }
+    if ([subID isEqualToString:@"3"]) {
+        
+        ThirdViewController *v3 = [[ThirdViewController alloc] init];
+        v3.closeBlock = ^{
+            JJECallbackData *cb = [JJECallbackData callbackDataWithError:nil andData:@{@"info":@"AddressViewController has dismissed"}];
+            param.closeCallBack(cb);
+        };
+        [v3 showInParentController:param.otherParams[kEngineKeyParentVC]];
     }
 
 }

@@ -1,29 +1,24 @@
 //
-//  MyViewController.m
+//  ThirdViewController.m
 //  JJRouterDemo
 //
-//  Created by zhangyi35 on 2018/4/2.
+//  Created by zhangyi35 on 2018/4/3.
 //  Copyright © 2018年 zhangyi. All rights reserved.
 //
 
-#import "MyViewController.h"
+#import "ThirdViewController.h"
 
-@interface MyViewController ()
+@interface ThirdViewController ()
 
 @end
 
-@implementation MyViewController
+@implementation ThirdViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor yellowColor];
+    self.title = @"3";
 
-    // Do any additional setup after loading the view.
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
-    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {

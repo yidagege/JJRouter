@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES];
     self.title = @"find";
     UIButton *b1 = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 40)];
     b1.backgroundColor = [UIColor redColor];
@@ -30,6 +29,12 @@
     [b2 setTitle:@"go 2" forState:UIControlStateNormal];
     [self.view addSubview:b2];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)goone{

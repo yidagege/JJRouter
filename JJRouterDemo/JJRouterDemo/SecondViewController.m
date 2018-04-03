@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor purpleColor];
+    self.title = @"2";
 }
 
 - (void)didReceiveMemoryWarning {
