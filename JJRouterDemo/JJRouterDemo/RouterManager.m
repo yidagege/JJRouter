@@ -40,9 +40,11 @@
             JJECallbackData *cb = [JJECallbackData callbackDataWithError:nil andData:@{@"info":@"AddressViewController has dismissed"}];
             param.closeCallBack(cb);
         };
-        [v1 showInParentController:param.otherParams[kEngineKeyParentVC]];
-        //
-//        [v1 showInParentController:JJDelegate.rootVc];
+        if (param.otherParams[kEngineKeyParentVC] && [param.otherParams[kEngineKeyParentVC]  isKindOfClass:[UIViewController class]]) {
+            [v1 showInParentController:param.otherParams[kEngineKeyParentVC]];
+        }else{
+            [v1 showInParentController:JJDelegate.rootVc];
+        }
 
     }
     if ([subID isEqualToString:@"2"]) {
@@ -51,7 +53,11 @@
             JJECallbackData *cb = [JJECallbackData callbackDataWithError:nil andData:@{@"info":@"AddressViewController has dismissed"}];
             param.closeCallBack(cb);
         };
-        [v2 showInParentController:param.otherParams[kEngineKeyParentVC]];
+        if (param.otherParams[kEngineKeyParentVC] && [param.otherParams[kEngineKeyParentVC]  isKindOfClass:[UIViewController class]]) {
+            [v2 showInParentController:param.otherParams[kEngineKeyParentVC]];
+        }else{
+            [v2 showInParentController:JJDelegate.rootVc];
+        }
     }
     if ([subID isEqualToString:@"3"]) {
         
@@ -60,7 +66,12 @@
             JJECallbackData *cb = [JJECallbackData callbackDataWithError:nil andData:@{@"info":@"AddressViewController has dismissed"}];
             param.closeCallBack(cb);
         };
-        [v3 showInParentController:param.otherParams[kEngineKeyParentVC]];
+        if (param.otherParams[kEngineKeyParentVC] && [param.otherParams[kEngineKeyParentVC]  isKindOfClass:[UIViewController class]]) {
+            [v3 showInParentController:param.otherParams[kEngineKeyParentVC]];
+        }else{
+            [v3 showInParentController:JJDelegate.rootVc];
+        }
+        
     }
 
 }
