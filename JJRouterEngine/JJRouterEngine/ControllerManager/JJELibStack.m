@@ -10,7 +10,7 @@
 
 NSString * const kJJELibTaskKey = @"com.JJ.engine.libtask";
 
-//为sharelib需要提供的类，记录当前模块
+//记录当前模块
 @implementation JJELibStack {
     NSMutableArray *_array;
 }
@@ -24,7 +24,7 @@ NSString * const kJJELibTaskKey = @"com.JJ.engine.libtask";
     return self;
 }
 
-//因为登录模块总在栈顶，所以每次取栈顶下的元素
+//每次取栈顶下的元素
 - (void)writeToFile:(id)obj
 {
     if (obj == nil) {
